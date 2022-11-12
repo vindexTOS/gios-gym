@@ -102,7 +102,11 @@ export default function Navbar() {
                 }
               })
               .map((item) => {
-                return <p>{item.title}</p>;
+                return (
+                  <Link to={`/product/${item.id}`}>
+                    <p key={item.id}>{item.title}</p>
+                  </Link>
+                );
               })}
           </div>
         )}
