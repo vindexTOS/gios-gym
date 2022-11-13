@@ -6,6 +6,7 @@ import Contact from "./components/contact";
 import React from "react";
 import { SearchContext } from "./components/context";
 import SingleProduct from "./components/product/SIngleProduct";
+import Cart from "./components/checkout/Cart";
 import uuid from "react-uuid";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
   const [lang, setLang] = React.useState(false);
   const [searchButton, setSearchButton] = React.useState(false);
   const [search, setSearch] = React.useState("");
+  const [card, setCard] = React.useState([]);
 
   const clickFilter = (type) => {
     let newList = [...data];
@@ -40,6 +42,8 @@ function App() {
           setSearch,
           searchButton,
           setSearchButton,
+          card,
+          setCard,
         }}
       >
         <Navbar />
@@ -47,6 +51,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/product/:productId" element={<SingleProduct />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </SearchContext.Provider>
     </BrowserRouter>

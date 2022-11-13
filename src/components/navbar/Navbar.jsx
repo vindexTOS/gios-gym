@@ -129,12 +129,13 @@ export default function Navbar() {
         >
           <FaShippingFast />
         </a>
-        <a
+        <Link
+          to="/cart"
           title={lang ? "კალათა" : "Cart"}
           className=" flex items-center justify-center  w-[30px] h-[30px] rounded-[50%] hover:bg-gray-300  cursor-pointer"
         >
           <FaCartPlus />
-        </a>
+        </Link>
         <button onClick={() => setLang(!lang)}>{lang ? "GEO" : "ENG"}</button>
       </div>
     </nav>
