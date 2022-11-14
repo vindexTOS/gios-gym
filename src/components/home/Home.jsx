@@ -4,7 +4,7 @@ import Navigation from "../side_navigation/Navigation";
 
 export default function Home() {
   return (
-    <div className="w-[100vw] h-[100%] bg-[#f2f2ff] pt-[1rem]">
+    <div className="w-[100vw] h-[100vh] bg-[#f2f2ff]  ">
       <Navigation />
       <Product />
     </div>

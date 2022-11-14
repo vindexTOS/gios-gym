@@ -5,7 +5,7 @@ export const data = [
     title: "Rogue Dumbbells",
     img: "https://assets.roguefitness.com/f_auto,q_auto,c_limit,w_1600,b_rgb:ffffff/catalog/Conditioning/Strength%20Equipment/Dumbbells/XX7125/XX7125-H_u6c9kv.png",
 
-    price: "$20",
+    price: 20,
 
     singlePage: {
       decTitle: "ROGUE RUBBER HEX DUMBBELLS",
@@ -34,7 +34,7 @@ Proprietary head to handle construction ensures the head does not come loose`,
     type: "dumbbells",
     title: "Rogue Loadable Dumbbells",
     img: "https://assets.roguefitness.com/f_auto,q_auto,c_limit,w_1600,b_rgb:ffffff/catalog/Conditioning/Strength%20Equipment/Dumbbells/LOADABLEDBS/LOADABLEDBS-WEB1_zy97cf.png",
-    price: "$200.00",
+    price: 200,
 
     singlePage: {
       decTitle: "",
@@ -47,7 +47,7 @@ Proprietary head to handle construction ensures the head does not come loose`,
     type: "barbells",
     title: "The Ohio Bar - Cerakote",
     img: "https://assets.roguefitness.com/f_auto,q_auto,c_limit,w_1600,b_rgb:ffffff/catalog/Weightlifting%20Bars%20and%20Plates/Barbells/Mens%2020KG%20Barbells/OHIOCERAKOTE/Updated%20Headers%201-25-22/OHIOCERAKOTE_0010_red-black_sfvapn.png",
-    price: "$200.00",
+    price: 200,
 
     singlePage: {
       decTitle: "",
@@ -60,7 +60,7 @@ Proprietary head to handle construction ensures the head does not come loose`,
     type: "barbells",
     title: "The Ohio Bar - Cerakote",
     img: "https://assets.roguefitness.com/f_auto,q_auto,c_limit,w_1600,b_rgb:ffffff/catalog/Weightlifting%20Bars%20and%20Plates/Barbells/Mens%2020KG%20Barbells/OHIOCERAKOTE/Updated%20Headers%201-25-22/OHIOCERAKOTE_0010_red-black_sfvapn.png",
-    price: "$200.00",
+    price: 200,
 
     singlePage: {
       decTitle: "",
@@ -73,7 +73,7 @@ Proprietary head to handle construction ensures the head does not come loose`,
     type: "barbells",
     title: "The Ohio Bar - Cerakote",
     img: "https://assets.roguefitness.com/f_auto,q_auto,c_limit,w_1600,b_rgb:ffffff/catalog/Weightlifting%20Bars%20and%20Plates/Barbells/Mens%2020KG%20Barbells/OHIOCERAKOTE/Updated%20Headers%201-25-22/OHIOCERAKOTE_0010_red-black_sfvapn.png",
-    price: "$200.00",
+    price: 200,
 
     singlePage: {
       decTitle: "",
@@ -86,7 +86,7 @@ Proprietary head to handle construction ensures the head does not come loose`,
     type: "barbells",
     title: "The Ohio Bar - Cerakote",
     img: "https://assets.roguefitness.com/f_auto,q_auto,c_limit,w_1600,b_rgb:ffffff/catalog/Weightlifting%20Bars%20and%20Plates/Barbells/Mens%2020KG%20Barbells/OHIOCERAKOTE/Updated%20Headers%201-25-22/OHIOCERAKOTE_0010_red-black_sfvapn.png",
-    price: "$200.00",
+    price: 200,
 
     singlePage: {
       decTitle: "",

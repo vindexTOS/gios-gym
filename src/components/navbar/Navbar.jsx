@@ -14,7 +14,7 @@ export default function Navbar() {
   const [searchBar, setSearchBar] = React.useState(false);
   return (
     <nav
-      className="w-[100vw] h-[80px] bg-[#F9F6EE] flex items-center justify-evenly "
+      className="w-[100vw] h-[80px] bg-[#F9F6EE] flex items-center  justify-evenly "
       style={{
         boxShadow: "1.9px 3.8px 3.8px hsl(0deg 0% 0% / 0.44)",
         color: "red",

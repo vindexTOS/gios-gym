@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Dosis&family=Expletus+Sans&family=Kolker+Brush&family=Oswald&display=swap");
 .logo {
   font-family: "Kolker Brush", cursive;
@@ -11,4 +11,8 @@
 .product-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(19rem, 20rem));
+}
+
+body {
+  background-color: #f2f2ff;
 }

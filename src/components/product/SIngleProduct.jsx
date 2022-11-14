@@ -8,25 +8,28 @@ import ProductSpecs from "./ProductSpecs";
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import { SearchContext } from "../context";
 import { useDispatchCart } from "../checkout/Cart";
-import uuid from "react-uuid";
+import { motion } from "framer-motion";
 export default function SingleProduct() {
   const dispatch = useDispatchCart();
 
   const { card, setCard } = useContext(SearchContext);
 
   // states
+  // description switcher state
+  const [imgIndex, setImgIndex] = React.useState(1);
 
   const [decNav, setDecNav] = React.useState({
     dec: true,
     spec: false,
     shipping: false,
   });
-
+  // add itam to a cart function
   const handleCard = (item) => {
     console.log(item);
     dispatch({ type: "ADD", item });
   };
   // img slider logic
+
   const nextImg = () => {
     setImgIndex((index) => {
       let newIndex = index + 1;
@@ -56,56 +59,100 @@ export default function SingleProduct() {
   const { img, title, type, price, singlePage } = product;
   const { decTitle, dec, Specifications, imgs } = singlePage;
 
-  const [imgIndex, setImgIndex] = React.useState(1);
   return (
     <div
       key={productId}
-      className="flex flex-row items-center  
-    justify-start gap-6 mt-10 w-[100%] "
+      className=" body-div bg-[#f2f2ff] flex flex-col items-center  
+    justify-start gap-6 mt-10 overflow-x-hidden   w-[100vw]      "
     >
-      <div className="flex flex-col items-start justify-center ml-5 ">
-        <div className="flex flex-col items-center justify-cenetr w-[50%]">
+      <div className="main-div flex flex-row items-start justify-center   gap-5    w-[100%]   ">
+        <div className=" img-div flex flex-col items-center justify-cenetr w-[40%] overflow-hidden ">
           <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>{title}</h1>
 
           <img
-            className="w-[100%] h-[500px] rounded-[1rem]"
+            className="w-[100%] h-[500px] rounded-[1rem] overflow-hidden"
             style={{ border: "2px solid black" }}
             src={imgs[imgIndex]}
           />
-          <div className="flex flex-row    ">
-            <BiLeftArrow
-              style={{ fontSize: "200%" }}
-              onClick={() => prevImg()}
-            />
-
-            <BiRightArrow
-              style={{ fontSize: "200%" }}
-              onClick={() => nextImg()}
-            />
+          <div className="flex flex-row   gap-10 ">
+            <motion.p
+              whileHover={{
+                scale: 1.2,
+                backgroundColor: "rgba(227, 227, 227, 0.53)",
+                borderRadius: "50%",
+                transition: "none",
+              }}
+            >
+              {" "}
+              <BiLeftArrow
+                style={{ fontSize: "200%", cursor: "pointer" }}
+                onClick={() => prevImg()}
+              />
+            </motion.p>
+            <motion.p whileHover={{ scale: 1.2 }}>
+              {" "}
+              <BiRightArrow
+                style={{ fontSize: "200%", cursor: "pointer" }}
+                onClick={() => nextImg()}
+              />
+            </motion.p>
           </div>
         </div>
-        <div className="flex flex-row gap-5">
-          <a onClick={() => setDecNav({ dec: true })}>Product description</a>
-          <a onClick={() => setDecNav({ dec: false, spec: true })}>
-            Product sepcs
-          </a>
-          <a onClick={() => setDecNav({ dec: false, shipping: true })}>
-            Shipping detales
-          </a>
-        </div>
-        <div className="w-[50%] h-[1px] bg-gray-300 mb-5"></div>
-        <div className="flex flex-col text-start  items-center justify-center w-[50%] ">
-          {decNav.dec ? (
-            <ProductDec dec={dec} />
-          ) : decNav.spec ? (
-            <ProductSpecs Specifications={Specifications} />
-          ) : decNav.shipping ? (
-            <Shippinginfo />
-          ) : null}
-          <Link to="/">Go back</Link>
+        <div className=" dec-div flex flex-col gap-5 w-[50%] mt-[3rem]">
+          <div className="flex flex-row gap-5">
+            <a
+              className="cursor-pointer"
+              onClick={() => setDecNav({ dec: true })}
+            >
+              Product description
+              {decNav.dec && (
+                <motion.div
+                  initial={{ width: "20%" }}
+                  animate={{ width: "100%" }}
+                  className="  h-[2px] bg-red-600 "
+                ></motion.div>
+              )}
+            </a>
+            <a
+              className="cursor-pointer"
+              onClick={() => setDecNav({ dec: false, spec: true })}
+            >
+              Product sepcs
+              {decNav.spec && (
+                <motion.div
+                  initial={{ width: "20%" }}
+                  animate={{ width: "100%" }}
+                  className="  h-[2px] bg-red-600 "
+                ></motion.div>
+              )}
+            </a>
+            <a
+              className="cursor-pointer"
+              onClick={() => setDecNav({ dec: false, shipping: true })}
+            >
+              Shipping detales
+              {decNav.shipping && (
+                <motion.div
+                  initial={{ width: "20%" }}
+                  animate={{ width: "100%" }}
+                  className="  h-[2px] bg-red-600 "
+                ></motion.div>
+              )}
+            </a>
+            <Additem product={product} handleCard={handleCard} />
+          </div>
+          <div className="w-[100%] h-[1px] bg-gray-600  mb-5"></div>
+          <div className=" switch-page-div flex flex-col text-start  items-center justify-center w-[100%] ">
+            {decNav.dec ? (
+              <ProductDec dec={dec} />
+            ) : decNav.spec ? (
+              <ProductSpecs Specifications={Specifications} />
+            ) : decNav.shipping ? (
+              <Shippinginfo />
+            ) : null}
+          </div>
         </div>
       </div>
-      <Additem product={product} handleCard={handleCard} />
     </div>
   );
 }

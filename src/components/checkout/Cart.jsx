@@ -34,6 +34,7 @@ export const CartProvider = ({ children }) => {
 export default function Cart() {
   const items = useCart();
   const dispatch = useDispatchCart();
+  const totalPrice = items.reduce((total, b) => total + b.price, 0);
 
   const handleRemove = (index) => {
     dispatch({ type: "REMOVE", index });
@@ -48,12 +49,16 @@ export default function Cart() {
   return (
     <section className="bg-gray-300 w-[100vw] h-[100%] flex ">
       <div className="flex flex-col gap-5 bg-white    ]">
+        <div>
+          <p>Total Price ${totalPrice}</p>
+        </div>
         {items.map((item, index) => {
           const { title, img, id, price } = item;
           return (
             <div className="flex flex-row">
               <img className="w-[80px] h-[70px] " src={img} />
               <h1>{title}</h1>
+              <p>{price}</p>
               <button onClick={() => handleRemove(index)}>Remove item</button>
             </div>
           );

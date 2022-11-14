@@ -7,7 +7,7 @@ import React from "react";
 import { SearchContext } from "./components/context";
 import SingleProduct from "./components/product/SIngleProduct";
 import Cart from "./components/checkout/Cart";
-import uuid from "react-uuid";
+import Navigation from "./components/side_navigation/Navigation";
 
 function App() {
   const [navFilter, setNavFilter] = React.useState(data);
@@ -47,6 +47,7 @@ function App() {
         }}
       >
         <Navbar />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />

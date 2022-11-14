@@ -42,7 +42,7 @@ export default function Product() {
                 />
 
                 <h4>{title}</h4>
-                <h6>{price}</h6>
+                <h6>${price}</h6>
               </div>
             </Link>
           );
