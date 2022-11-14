@@ -7,8 +7,11 @@ import Shippinginfo from "../Shippinginfo";
 import ProductSpecs from "./ProductSpecs";
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import { SearchContext } from "../context";
+import { useDispatchCart } from "../checkout/Cart";
 import uuid from "react-uuid";
 export default function SingleProduct() {
+  const dispatch = useDispatchCart();
+
   const { card, setCard } = useContext(SearchContext);
 
   // states
@@ -20,10 +23,8 @@ export default function SingleProduct() {
   });
 
   const handleCard = (item) => {
-    card.push(item);
-    setCard((item) => {
-      return (item.id = uuid());
-    });
+    console.log(item);
+    dispatch({ type: "ADD", item });
   };
   // img slider logic
   const nextImg = () => {

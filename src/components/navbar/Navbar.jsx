@@ -4,8 +4,12 @@ import { BiMessageRoundedDetail } from "react-icons/bi";
 import { CiSearch } from "react-icons/ci";
 import { SearchContext } from "../context";
 import { Link } from "react-router-dom";
+import { useCart } from "../checkout/Cart";
+import Cart from "../checkout/Cart";
 export default function Navbar() {
-  const { lang, setLang, search, setSearch, navFilter } =
+  const items = useCart();
+
+  const { lang, setLang, search, setSearch, navFilter, card } =
     useContext(SearchContext);
   const [searchBar, setSearchBar] = React.useState(false);
   return (
@@ -134,7 +138,15 @@ export default function Navbar() {
           title={lang ? "კალათა" : "Cart"}
           className=" flex items-center justify-center  w-[30px] h-[30px] rounded-[50%] hover:bg-gray-300  cursor-pointer"
         >
-          <FaCartPlus />
+          <FaCartPlus />{" "}
+          {items.length > 0 && (
+            <div
+              className=" flex items-center justify-center bg-red-400 w-[12px] h-[12px] rounded-[50%] absolute mb-[20px] ml-[20px] "
+              style={{ fontSize: "10px", color: "white" }}
+            >
+              {items.length}
+            </div>
+          )}
         </Link>
         <button onClick={() => setLang(!lang)}>{lang ? "GEO" : "ENG"}</button>
       </div>
