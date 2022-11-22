@@ -19,7 +19,7 @@ export default function Product() {
         .map((item, index) => {
           const { title, img, price, id } = item;
           return (
-            <Link key={id} to={`/products/${id}`} title={item.Specifications}>
+            <Link key={id} to={`/${id}`} title={item.Specifications}>
               {loading ? (
                 <div
                   key={id}

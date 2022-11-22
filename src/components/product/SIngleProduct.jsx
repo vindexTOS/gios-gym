@@ -115,6 +115,11 @@ export default function SingleProduct() {
               />
             </motion.p>
           </div>
+          <div className="  flex flex-col bg-red-300">
+            <h1 className="text-[1.2rem]">simular products</h1>
+
+            <Sugestions product={product} />
+          </div>
         </div>
         <div className=" dec-div flex flex-col gap-5 w-[50%] mt-[3rem]">
           <div className="flex flex-row gap-5">
@@ -171,7 +176,6 @@ export default function SingleProduct() {
           </div>
         </div>
       </div>
-      <Sugestions product={product} />
     </div>
   );
 }
