@@ -1,11 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fragment+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Dosis&family=Expletus+Sans&family=Kolker+Brush&family=Oswald&display=swap");
 .logo {
-  font-family: "Kolker Brush", cursive;
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 
 .product-wrapper {
@@ -15,4 +16,12 @@
 
 body {
   background-color: #f2f2ff;
+}
+
+* p {
+  font-family: "Fragment Mono", monospace;
+}
+
+* h1 {
+  font-family: "Fjalla One", sans-serif;
 }

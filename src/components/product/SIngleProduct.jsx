@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
-import data from "../../data/data";
 import Additem from "../checkout/Additem";
 import ProductDec from "./productDec";
 import Shippinginfo from "../Shippinginfo";
@@ -9,10 +8,13 @@ import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import { SearchContext } from "../context";
 import { useDispatchCart } from "../checkout/Cart";
 import { motion } from "framer-motion";
+import Sugestions from "./Sugestions";
+import Loading from "../home/Loading";
+
 export default function SingleProduct() {
   const dispatch = useDispatchCart();
 
-  const { card, setCard } = useContext(SearchContext);
+  const { card, setCard, navFilter } = useContext(SearchContext);
 
   // states
   // description switcher state
@@ -44,20 +46,28 @@ export default function SingleProduct() {
   };
 
   const checkImg = (num) => {
-    if (num > singlePage.imgs.length - 1) {
+    if (num > imgs.length - 1) {
       return 0;
     } else if (num < 0) {
-      return singlePage.imgs.length - 1;
+      return imgs.length - 1;
     }
     return num;
   };
   // img slider logic ends here
 
   const { productId } = useParams();
-  const product = data.find((producte) => producte.id === parseInt(productId));
+  const product = navFilter.find(
+    (producte) => String(producte.id) === productId
+  );
   // data destruction
-  const { img, title, type, price, singlePage } = product;
-  const { decTitle, dec, Specifications, imgs } = singlePage;
+  if (!product) {
+    return (
+      <div className="w-[100vw] h-[100vh] flex items-center justify-center">
+        <Loading />
+      </div>
+    );
+  }
+  const { title, price, dec, Specifications, imgs } = product;
 
   return (
     <div
@@ -66,21 +76,23 @@ export default function SingleProduct() {
     justify-start gap-6 mt-10 overflow-x-hidden   w-[100vw]      "
     >
       <div className="main-div flex flex-row items-start justify-center   gap-5    w-[100%]   ">
-        <div className=" img-div flex flex-col items-center justify-cenetr w-[40%] overflow-hidden ">
+        <div className=" img-div flex flex-col   items-center justify-cenetr w-[40%] overflow-hidden ">
           <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>{title}</h1>
+          <h1>
+            PRICE <span className="text-green-500">${price}</span>
+          </h1>
 
           <img
             className="w-[100%] h-[500px] rounded-[1rem] overflow-hidden"
             style={{ border: "2px solid black" }}
             src={imgs[imgIndex]}
           />
-          <div className="flex flex-row   gap-10 ">
+          <div className="flex flex-row mt-5   gap-10 ">
             <motion.p
               whileHover={{
                 scale: 1.2,
                 backgroundColor: "rgba(227, 227, 227, 0.53)",
-                borderRadius: "50%",
-                transition: "none",
+                borderRadius: "10px",
               }}
             >
               {" "}
@@ -89,7 +101,13 @@ export default function SingleProduct() {
                 onClick={() => prevImg()}
               />
             </motion.p>
-            <motion.p whileHover={{ scale: 1.2 }}>
+            <motion.p
+              whileHover={{
+                scale: 1.2,
+                backgroundColor: "rgba(227, 227, 227, 0.53)",
+                borderRadius: "10px",
+              }}
+            >
               {" "}
               <BiRightArrow
                 style={{ fontSize: "200%", cursor: "pointer" }}
@@ -153,6 +171,7 @@ export default function SingleProduct() {
           </div>
         </div>
       </div>
+      <Sugestions product={product} />
     </div>
   );
 }

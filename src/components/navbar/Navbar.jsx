@@ -21,29 +21,35 @@ export default function Navbar() {
         borderBottom: "1px solid gray",
       }}
     >
-      <Link style={{ cursor: "pointer" }} to="/">
-        {" "}
-        <div className="max_xl:justify-start max_xl:w-[100vw]  ">
-          <div className="    ml-[40px] logo flex items-center justify-center  bg-[#FF0000] w-[120px] h-[33px] rounded-[30px] font-bold ">
-            <h1 className="bg-white w-[80px] h-[25px] text-center flex items-center justify-center rounded-[30px]   ">
-              <span className="mb-1">giosgym</span>
+      {" "}
+      <div className="max_xl:justify-start max_xl:w-[100vw]  ">
+        <Link style={{ cursor: "pointer" }} to="/">
+          <div
+            className={
+              searchBar
+                ? "hidden"
+                : "  max_xl:ml-[2rem]  ml-[40px] logo flex items-center justify-center  bg-[#FF0000] w-[120px] h-[33px] rounded-[30px] font-bold "
+            }
+          >
+            <h1 className="bg-white w-[80px] h-[24px] text-center flex items-center justify-center rounded-[30px]   ">
+              <span>giosgym</span>
             </h1>
             <span style={{ color: "white" }} className="mb-1 ml-[2px]">
               .ge
             </span>
-          </div>
-        </div>
-      </Link>
+          </div>{" "}
+        </Link>
+      </div>
       {!searchBar && (
         <div
-          onClick={() => setSearchBar(true)}
+          onClick={() => setSearchBar(!searchBar)}
           className="xl:hidden   lg:hidden flex items-center justify-center w-[25px] h-[25px] rounded-[50%]  hover:bg-gray-300  cursor-pointer text-[1.2rem]"
         >
           <CiSearch />
         </div>
       )}
-      {searchBar && (
-        <div className="border-[1px] xl:hidden	lg:hidden flex items-center justify-center w-[100%]  h-[33px] rounded-[30px] ">
+      {/*searchBar && (
+        <div className="border-[1px] xl:hidden    absolute bg-white lg:hidden flex items-center justify-center w-[50%]  mr-[10rem]    h-[33px] rounded-[30px] ">
           <input
             style={{
               outline: "none",
@@ -51,7 +57,7 @@ export default function Navbar() {
               fontSize: "12px",
               fontWeight: "bold",
             }}
-            className="w-[100%] "
+            className="w-[10rem] "
             placeholder="
           giosgym"
           />
@@ -60,8 +66,14 @@ export default function Navbar() {
             <CiSearch />
           </a>
         </div>
-      )}
-      <div className="border-[1px] max_lg:hidden	flex items-center justify-center w-[90%] h-[33px] rounded-[30px]  ml-[30px] ">
+          )*/}
+      <div
+        className={
+          !searchBar
+            ? "border-[1px] max_lg:hidden	flex items-center justify-center w-[90%] h-[33px] rounded-[30px]  ml-[30px] "
+            : "border-[1px] xl:hidden    absolute bg-white lg:hidden flex items-center justify-center w-[50%]  mr-[10rem]    h-[33px] rounded-[30px]"
+        }
+      >
         <input
           style={{
             outline: "none",
@@ -70,7 +82,7 @@ export default function Navbar() {
             fontWeight: "bold",
           }}
           onChange={(e) => setSearch(e.target.value)}
-          value={search}
+          value={search.text}
           className="w-[100%] ml-5 "
           placeholder="
           giosgym"
@@ -107,7 +119,7 @@ export default function Navbar() {
               })
               .map((item) => {
                 return (
-                  <Link to={`/product/${item.id}`}>
+                  <Link to={`/${item.id}`}>
                     <p key={item.id}>{item.title}</p>
                   </Link>
                 );
@@ -115,9 +127,12 @@ export default function Navbar() {
           </div>
         )}
       </div>
-
       <div
-        className="icon-wrapper flex gap-3 p-0  text-[1.2rem] mr-20   "
+        className={
+          searchBar
+            ? "max_sm:ml-[18rem] icon-wrapper flex gap-1 p-0  text-[1rem] mr-20"
+            : "icon-wrapper flex gap-3 p-0  text-[1.2rem] mr-20  "
+        }
         style={{ color: "gray" }}
       >
         <Link
@@ -127,12 +142,13 @@ export default function Navbar() {
         >
           <BiMessageRoundedDetail />
         </Link>
-        <a
+        <Link
+          to={"/shipping"}
           title={lang ? "მიწოდება" : "Shipping"}
           className=" flex items-center justify-center  w-[30px] h-[30px] rounded-[50%]  hover:bg-gray-300  cursor-pointer"
         >
           <FaShippingFast />
-        </a>
+        </Link>
         <Link
           to="/cart"
           title={lang ? "კალათა" : "Cart"}

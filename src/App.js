@@ -1,41 +1,84 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./components/home/Home";
-import data from "./data/data";
 import Contact from "./components/contact";
-import React from "react";
+import React, { useState } from "react";
 import { SearchContext } from "./components/context";
 import SingleProduct from "./components/product/SIngleProduct";
 import Cart from "./components/checkout/Cart";
-import Navigation from "./components/side_navigation/Navigation";
-
+import Test from "./components/test/test";
+import { db } from "./firebase-config";
+import Shippinginfo from "./components/Shippinginfo";
+import { collection, getDocs } from "firebase/firestore";
 function App() {
-  const [navFilter, setNavFilter] = React.useState(data);
-  const [lang, setLang] = React.useState(false);
-  const [searchButton, setSearchButton] = React.useState(false);
-  const [search, setSearch] = React.useState("");
-  const [card, setCard] = React.useState([]);
+  const [lang, setLang] = useState(false);
+  const [searchButton, setSearchButton] = useState(false);
+  const [search, setSearch] = useState("");
+  const [card, setCard] = useState([]);
 
-  const clickFilter = (type) => {
-    let newList = [...data];
+  const equpmentCollection = collection(db, "equpment");
+  // data //////////////////////////////////////////////////////////////////////////
+  const [data, setData] = useState([]);
 
-    newList = newList.filter((item) => {
-      if (type === item.type) {
-        return item.type;
-      } else if (type === "all") {
-        return data;
+  const [navFilter, setNavFilter] = useState([]);
+  const [loading, setLoading] = useState(false);
+  React.useEffect(() => {
+    const getEqupment = async () => {
+      const data = await getDocs(equpmentCollection);
+      console.log(data);
+      setData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getEqupment();
+  }, []);
+
+  React.useEffect(() => {
+    setNavFilter(data);
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1300);
+  }, [data]);
+
+  const types = [
+    { eng: "All Product", geo: "ყველა პროდუქტი", type: "all" },
+    { eng: "Weights", geo: "წონები", type: "weights" },
+    {
+      eng: "Barbell",
+      geo: "ღერძი",
+      type: "barbells",
+    },
+    {
+      eng: "Dumbbells",
+      geo: "ჰანტელი",
+      type: "dumbbells",
+    },
+    { eng: "Machines", geo: "ტრენაჟორი", type: "machines" },
+    { eng: "Racks", geo: "რაკი", type: "racks" },
+    { eng: "Gymnastic", geo: "გიმასტიკეიბ", type: "gymnastic" },
+  ];
+
+  const categoryClick = (type) => {
+    let newArry = data;
+    newArry = newArry.filter((val) => {
+      if (type === "all") {
+        console.log(val.type);
+        return val;
+      } else if (val.type === type) {
+        console.log(type);
+        return val;
       }
     });
-    setNavFilter(newList);
-    console.log(newList);
+    setNavFilter(newArry);
   };
-
+  //data /////////////////////////
   return (
     <BrowserRouter>
       <SearchContext.Provider
         value={{
+          loading,
+          types,
+          categoryClick,
           navFilter,
-          clickFilter,
           lang,
           setLang,
           search,
@@ -51,8 +94,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/product/:productId" element={<SingleProduct />} />
+          <Route path="/shipping" element={<Shippinginfo />} />
+          <Route path="/:productId" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
       </SearchContext.Provider>
     </BrowserRouter>

@@ -1,45 +1,37 @@
 import React, { useContext } from "react";
-
 import { SearchContext } from "../context";
-
-import { GiWeight, GiWeightLiftingUp } from "react-icons/gi";
-import { CiDumbbell } from "react-icons/ci";
+import { motion } from "framer-motion";
+import DropDownMenu from "./DropDownMenu";
+import { VscThreeBars } from "react-icons/vsc";
+import { useEffect } from "react";
 
 export default function Navigation() {
-  const { clickFilter, lang } = useContext(SearchContext);
+  const { lang, categoryClick, types } = useContext(SearchContext);
 
-  const types = [
-    { eng: "All Product", geo: "ყველა პროდუქტი", type: "all" },
-    { eng: "Weights", geo: "წონები", type: "weights" },
-    {
-      eng: "Barbell",
-      geo: "ღერძი",
-      type: "barbells",
-    },
-    {
-      eng: "Dumbbells",
-      geo: "ჰანტელი",
-      type: "dumbbells",
-    },
-    { eng: "Machines", geo: "ტრენაჟორი", type: "machines" },
-    { eng: "Racks", geo: "რაკი", type: "racks" },
-    { eng: "Gymnastic", geo: "გიმასტიკეიბ", type: "gymnastic" },
-  ];
+  const [dropDown, setDropDown] = React.useState(false);
 
   return (
-    <nav
-      className=" side-navigation w-[100%] bg-[#F9F6EE] flex h-[60px]    "
+    <motion.nav
+      initial={{ y: -300 }}
+      animate={{ y: 0 }}
+      className="  max_sm:overflow-x-hidden side-navigation w-[100%] bg-[#F9F6EE] flex h-[60px]    "
       style={{
         boxShadow: "1.9px 3.8px 3.8px hsl(0deg 0% 0% / 0.44)",
       }}
     >
-      <div className="flex flex-row  items-center justify-between gap-5   text-[1.3rem]    ">
+      <div className="sm:hidden flex items-center ml-[10px]">
+        <button onClick={() => setDropDown(!dropDown)}>
+          <VscThreeBars className="text-[2rem]" />
+        </button>
+      </div>
+      {dropDown && <DropDownMenu types={types} lang={lang} />}
+      <div className="flex flex-row  max_sm:hidden items-center justify-between gap-5   text-[1.3rem]    ">
         {types.map((item) => {
           const { eng, geo, type } = item;
           return (
             <button
               style={{ fontFamily: "Dosis" }}
-              onClick={() => clickFilter(type)}
+              onClick={() => categoryClick(type)}
               key={type}
             >
               {!lang ? eng : geo}
@@ -47,6 +39,6 @@ export default function Navigation() {
           );
         })}
       </div>
-    </nav>
+    </motion.nav>
   );
 }
