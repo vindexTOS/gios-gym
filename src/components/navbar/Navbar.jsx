@@ -4,6 +4,7 @@ import { BiMessageRoundedDetail } from "react-icons/bi";
 import { CiSearch } from "react-icons/ci";
 import { SearchContext } from "../context";
 import { Link } from "react-router-dom";
+import { AiOutlineHome } from "react-icons/ai";
 import { useCart } from "../checkout/Cart";
 import Cart from "../checkout/Cart";
 export default function Navbar() {
@@ -130,11 +131,17 @@ export default function Navbar() {
       <div
         className={
           searchBar
-            ? "max_sm:ml-[18rem] icon-wrapper flex gap-1 p-0  text-[1rem] mr-20"
+            ? "max_sm:ml-[18rem] icon-wrapper flex  p-0  text-[1rem] mr-20"
             : "icon-wrapper flex gap-3 p-0  text-[1.2rem] mr-20  "
         }
         style={{ color: "gray" }}
       >
+        <Link
+          to="/"
+          className="flex items-center justify-center w-[30px] h-[30px] rounded-[50%]  hover:bg-gray-300  cursor-pointer "
+        >
+          <AiOutlineHome />
+        </Link>
         <Link
           to="/contact"
           title={lang ? "კონტაქტი" : "Contact"}

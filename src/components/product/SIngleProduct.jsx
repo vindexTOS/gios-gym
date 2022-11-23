@@ -77,17 +77,22 @@ export default function SingleProduct() {
     >
       <div className="main-div flex flex-row items-start justify-center   gap-5    w-[100%]   ">
         <div className=" img-div flex flex-col   items-center justify-cenetr w-[40%] overflow-hidden ">
-          <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>{title}</h1>
+          <h1
+            classNae=" text-[2rem] max_sm:text-[1rem]"
+            style={{ fontWeight: "bold" }}
+          >
+            {title}
+          </h1>
           <h1>
             PRICE <span className="text-green-500">${price}</span>
           </h1>
 
           <img
-            className="w-[100%] h-[500px] rounded-[1rem] overflow-hidden"
+            className="w-[100%] h-[500px] rounded-[1rem] overflow-hidden  max_sm:h-[250px]"
             style={{ border: "2px solid black" }}
             src={imgs[imgIndex]}
           />
-          <div className="flex flex-row mt-5   gap-10 ">
+          <div className="flex flex-row mt-2  gap-10 ">
             <motion.p
               whileHover={{
                 scale: 1.2,
@@ -97,7 +102,8 @@ export default function SingleProduct() {
             >
               {" "}
               <BiLeftArrow
-                style={{ fontSize: "200%", cursor: "pointer" }}
+                className="text-[200%] max_sm:text-[150%]"
+                style={{ cursor: "pointer" }}
                 onClick={() => prevImg()}
               />
             </motion.p>
@@ -110,7 +116,8 @@ export default function SingleProduct() {
             >
               {" "}
               <BiRightArrow
-                style={{ fontSize: "200%", cursor: "pointer" }}
+                className="text-[200%] max_sm:text-[150%]"
+                style={{ cursor: "pointer" }}
                 onClick={() => nextImg()}
               />
             </motion.p>
@@ -121,10 +128,10 @@ export default function SingleProduct() {
             <Sugestions product={product} />
           </div>
         </div>
-        <div className=" dec-div flex flex-col gap-5 w-[50%] mt-[3rem]">
+        <div className=" dec-div flex flex-col gap-5 w-[50%] mt-[3rem] max_sm:mt-0">
           <div className="flex flex-row gap-5">
             <a
-              className="cursor-pointer"
+              className="cursor-pointer max_sm:text-[12px]"
               onClick={() => setDecNav({ dec: true })}
             >
               Product description
@@ -137,7 +144,7 @@ export default function SingleProduct() {
               )}
             </a>
             <a
-              className="cursor-pointer"
+              className="cursor-pointer max_sm:text-[12px]"
               onClick={() => setDecNav({ dec: false, spec: true })}
             >
               Product sepcs
@@ -150,7 +157,7 @@ export default function SingleProduct() {
               )}
             </a>
             <a
-              className="cursor-pointer"
+              className="cursor-pointer max_sm:text-[12px]"
               onClick={() => setDecNav({ dec: false, shipping: true })}
             >
               Shipping detales

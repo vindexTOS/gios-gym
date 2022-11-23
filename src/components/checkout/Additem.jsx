@@ -5,14 +5,14 @@ export default function Additem({ product, handleCard }) {
   const [changeIcon, setChangeIcon] = React.useState(false);
   return (
     <div
-      className=" flex   bg-orange-500 w-[6rem] rounded-[15px]  "
+      className=" flex   bg-orange-500 w-[6rem]  max_sm:bg-none max_sm:w-0 max_sm:mr-[10rem] rounded-[15px]      "
       onClick={() => setChangeIcon(true)}
     >
       <button
         onClick={() => handleCard(product)}
         className="flex  flex-row justify-center items-center gap-2"
       >
-        <p className="bg-white ml-1 w-[1.4rem] h-[1.4rem] rounded-[15px] flex items-center justify-center text-yellow-500 ">
+        <p className="bg-white ml-1   max_sm:m-0 w-[1.4rem] h-[1.4rem]  rounded-[15px] flex items-center justify-center text-yellow-500 ">
           {!changeIcon ? (
             <BsFillCartPlusFill
               style={{ marginRight: "2px", fontSize: "1rem" }}
@@ -29,6 +29,7 @@ export default function Additem({ product, handleCard }) {
             fontFamily: "Bebas Neue",
             marginTop: "4px",
           }}
+          className="max_sm:hidden"
         >
           ADD TO CART
         </p>
