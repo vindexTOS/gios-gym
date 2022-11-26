@@ -76,57 +76,58 @@ export default function SingleProduct() {
     justify-start gap-6 mt-10 overflow-x-hidden   w-[100vw]      "
     >
       <div className="main-div flex flex-row items-start justify-center   gap-5    w-[100%]   ">
-        <div className=" img-div flex flex-col   items-center justify-cenetr w-[40%] overflow-hidden ">
-          <h1
-            classNae=" text-[2rem] max_sm:text-[1rem]"
-            style={{ fontWeight: "bold" }}
-          >
-            {title}
-          </h1>
-          <h1>
-            PRICE <span className="text-green-500">${price}</span>
-          </h1>
-
+        <div className=" img-div flex flex-col   items-start justify-start w-[40%] overflow-hidden ">
+          <div className="flex flex-row gap-5 items-center justify-center ml-5">
+            {" "}
+            <h1
+              classNae=" text-[4rem] max_sm:text-[1rem]"
+              style={{ fontWeight: "bold" }}
+            >
+              {title}
+            </h1>
+            <h1>
+              PRICE <span className="text-green-500">${price}</span>
+            </h1>
+          </div>
           <img
             className="w-[100%] h-[500px] rounded-[1rem] overflow-hidden  max_sm:h-[250px]"
             style={{ border: "2px solid black" }}
             src={imgs[imgIndex]}
           />
-          <div className="flex flex-row mt-2  gap-10 ">
-            <motion.p
-              whileHover={{
-                scale: 1.2,
-                backgroundColor: "rgba(227, 227, 227, 0.53)",
-                borderRadius: "10px",
-              }}
-            >
-              {" "}
-              <BiLeftArrow
-                className="text-[200%] max_sm:text-[150%]"
-                style={{ cursor: "pointer" }}
-                onClick={() => prevImg()}
-              />
-            </motion.p>
-            <motion.p
-              whileHover={{
-                scale: 1.2,
-                backgroundColor: "rgba(227, 227, 227, 0.53)",
-                borderRadius: "10px",
-              }}
-            >
-              {" "}
-              <BiRightArrow
-                className="text-[200%] max_sm:text-[150%]"
-                style={{ cursor: "pointer" }}
-                onClick={() => nextImg()}
-              />
-            </motion.p>
+          <div className="flex flex-row mt-2 w-[100%] items-center justify-center   ">
+            <div className="flex flex-row  gap-10">
+              <motion.p
+                whileHover={{
+                  scale: 1.2,
+                  backgroundColor: "rgba(227, 227, 227, 0.53)",
+                  borderRadius: "10px",
+                }}
+              >
+                {" "}
+                <BiLeftArrow
+                  className="text-[200%] max_sm:text-[150%]"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => prevImg()}
+                />
+              </motion.p>
+              <motion.p
+                whileHover={{
+                  scale: 1.2,
+                  backgroundColor: "rgba(227, 227, 227, 0.53)",
+                  borderRadius: "10px",
+                }}
+              >
+                {" "}
+                <BiRightArrow
+                  className="text-[200%] max_sm:text-[150%]"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => nextImg()}
+                />
+              </motion.p>
+            </div>
           </div>
-          <div className="  flex flex-col bg-red-300">
-            <h1 className="text-[1.2rem]">simular products</h1>
 
-            <Sugestions product={product} />
-          </div>
+          <Sugestions product={product} />
         </div>
         <div className=" dec-div flex flex-col gap-5 w-[50%] mt-[3rem] max_sm:mt-0">
           <div className="flex flex-row gap-5">
@@ -169,9 +170,10 @@ export default function SingleProduct() {
                 ></motion.div>
               )}
             </a>
-            <Additem product={product} handleCard={handleCard} />
           </div>
-          <div className="w-[100%] h-[1px] bg-gray-600  mb-5"></div>
+          <div className="w-[100%] h-[1px] bg-gray-600   "></div>
+          <Additem product={product} handleCard={handleCard} />
+
           <div className=" switch-page-div flex flex-col text-start  items-center justify-center w-[100%] ">
             {decNav.dec ? (
               <ProductDec dec={dec} />
