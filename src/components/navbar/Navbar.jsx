@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { FaShippingFast, FaCartPlus } from "react-icons/fa";
 import { BiMessageRoundedDetail } from "react-icons/bi";
 import { CiSearch } from "react-icons/ci";
@@ -10,9 +10,20 @@ import Cart from "../checkout/Cart";
 export default function Navbar() {
   const items = useCart();
 
+  const inputRef = useRef(null);
+
   const { lang, setLang, search, setSearch, navFilter, card } =
     useContext(SearchContext);
   const [searchBar, setSearchBar] = React.useState(false);
+  const [inputSearch, setInputSearch] = React.useState("");
+  const searchRefClick = () => {
+    inputRef.current.focus();
+    if (inputRef.current.value.length < 0) {
+      return null;
+    } else {
+      setSearch(inputRef.current.value);
+    }
+  };
   return (
     <nav
       className="w-[100vw] h-[80px] bg-[#F9F6EE] flex items-center  justify-evenly "
@@ -49,30 +60,11 @@ export default function Navbar() {
           <CiSearch />
         </div>
       )}
-      {/*searchBar && (
-        <div className="border-[1px] xl:hidden    absolute bg-white lg:hidden flex items-center justify-center w-[50%]  mr-[10rem]    h-[33px] rounded-[30px] ">
-          <input
-            style={{
-              outline: "none",
-              background: "none",
-              fontSize: "12px",
-              fontWeight: "bold",
-            }}
-            className="w-[10rem] "
-            placeholder="
-          giosgym"
-          />
-          <span className="w-[0.6px] h-[70%] bg-gray-300 mr-[5px]"></span>
-          <a className=" flex items-center justify-center w-[25px] h-[25px] rounded-[50%]  hover:bg-gray-300  cursor-pointer">
-            <CiSearch />
-          </a>
-        </div>
-          )*/}
       <div
         className={
           !searchBar
-            ? "border-[1px] max_lg:hidden	flex items-center justify-center w-[90%] h-[33px] rounded-[30px]  ml-[30px] "
-            : "border-[1px] xl:hidden    absolute bg-white lg:hidden flex items-center justify-center w-[50%]  mr-[10rem]    h-[33px] rounded-[30px]"
+            ? "border-[1px] max_lg:hidden flex items-center  justify-center w-[100%] h-[33px] rounded-[30px]  ml-[30px] "
+            : `border-[1px] xl:hidden     absolute bg-white lg:hidden flex items-center justify-center w-[50%]  mr-[10rem]    h-[33px] rounded-[30px]`
         }
       >
         <input
@@ -82,28 +74,20 @@ export default function Navbar() {
             fontSize: "12px",
             fontWeight: "bold",
           }}
-          onChange={(e) => setSearch(e.target.value)}
-          value={search.text}
-          className="w-[100%] ml-5 "
+          value={inputSearch}
+          onChange={(e) => setInputSearch(e.target.value)}
+          ref={inputRef}
+          className="w-[100%]    ml-5 "
           placeholder="
           giosgym"
         />
-
-        <span className="w-[0.6px] h-[70%] bg-gray-300 mr-[10px]"></span>
-        <a
-          title="ძიება"
-          className=" flex items-center justify-center w-[25px] h-[25px] rounded-[50%]  hover:bg-gray-300  cursor-pointer"
-        >
-          <CiSearch />
-        </a>
-
-        {search.length > 0 && (
+        {inputSearch.length > 0 && (
           <div
             style={{
               boxShadow: "1.9px 3.8px 3.8px hsl(0deg 0% 0% / 0.44)",
               borderRadius: "10px",
             }}
-            className=" h-[10rem] w-[19rem] absolute  mr-[43%]     truncate	  overflow-y-auto bg-[#F9F6EE] mt-[13rem] z-30   "
+            className=" h-[10rem] w-[500%]           truncate	  overflow-y-auto bg-[#F9F6EE] mt-[13rem] z-30   "
           >
             {navFilter
               .filter((val) => {
@@ -113,20 +97,28 @@ export default function Navbar() {
                   val.title
                     .toLowerCase()
 
-                    .includes(search.toLowerCase())
+                    .includes(inputSearch.toLowerCase())
                 ) {
                   return val;
                 }
               })
               .map((item) => {
                 return (
-                  <Link to={`/${item.id}`}>
-                    <p key={item.id}>{item.title}</p>
+                  <Link key={item.id} to={`/${item.id}`}>
+                    <p>{item.title}</p>
                   </Link>
                 );
               })}
           </div>
         )}
+
+        <span className="w-[0.6px] h-[70%] bg-gray-300 mr-[10px]"></span>
+        <a
+          title="ძიება"
+          className=" flex items-center justify-center w-[25px] h-[25px] rounded-[50%]  hover:bg-gray-300  cursor-pointer"
+        >
+          <CiSearch onClick={searchRefClick} />
+        </a>
       </div>
       <div
         className={
