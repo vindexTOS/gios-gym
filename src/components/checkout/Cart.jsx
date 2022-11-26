@@ -4,7 +4,7 @@ import { FiDelete } from "react-icons/fi";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import CheckOutForm from "./CheckOutForm";
+import CheckOutForm from "./checkoutform/CheckOutForm";
 import EmptyCart from "./Empty.Cart";
 const CartStateContex = createContext();
 const CartDispatchContext = createContext();
