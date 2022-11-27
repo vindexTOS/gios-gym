@@ -1,7 +1,7 @@
 import React from "react";
 import Order from "./Order";
 import countries from "./countries.json";
-export default function CheckOutForm() {
+export default function CheckOutForm({ items }) {
   const [countryData, setCountryData] = React.useState(countries);
   return (
     <form>
@@ -45,14 +45,35 @@ export default function CheckOutForm() {
             <select>
               {countryData.map((country) => {
                 const { name, code } = country;
-                return <option>{name}</option>;
+                return <option key={code}>{name}</option>;
               })}
             </select>
+            <div className="mt-5 flex flex-col gap-5">
+              {/*address */}
+              <label>Address</label>
+              <input type="text" placeholder="address-1" />
+              <input type="text" placeholder="address-2" />
+            </div>
+            <div className="flex flex-col mt-5">
+              {/*state/provinc/city/town*/}
+              <label>Town/City</label>
+              <input type="text" placeholder="Town/City" />
+              <div className="flex flex-row gap-5">
+                <span className="flex flex-col gap-5">
+                  <label>province/state</label>
+                  <input type="text" placehodler="province/state" />
+                </span>
+                <span className="flex flex-col gap-5">
+                  <label>Postcod/ZIP</label>
+                  <input type="text" placeholder="postcode/zip" />
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="h-[100vh] w-[2px] bg-red-600"></div>
-        <Order />
+        <Order items={items} />
       </div>
     </form>
   );

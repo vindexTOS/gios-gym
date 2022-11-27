@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import CheckOutForm from "./checkoutform/CheckOutForm";
 import EmptyCart from "./Empty.Cart";
+import Order from "./checkoutform/Order";
 const CartStateContex = createContext();
 const CartDispatchContext = createContext();
 
@@ -60,7 +61,7 @@ export default function Cart() {
     return <EmptyCart />;
   }
   if (checkButton) {
-    return <CheckOutForm />;
+    return <CheckOutForm items={items} />;
   }
 
   return (
