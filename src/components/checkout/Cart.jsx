@@ -61,7 +61,7 @@ export default function Cart() {
     return <EmptyCart />;
   }
   if (checkButton) {
-    return <CheckOutForm items={items} />;
+    return <CheckOutForm items={items} handleRemove={handleRemove} />;
   }
 
   return (
@@ -79,7 +79,7 @@ export default function Cart() {
           const { title, img, id, price } = item;
           return (
             <div
-              key={id}
+              key={index}
               className="flex flex-row items-center justify-between border-[2px] p-1 rounded-[10px]  gap-3 "
             >
               <Link to={`/${id}`}>
