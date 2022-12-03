@@ -73,10 +73,10 @@ export default function SingleProduct() {
     <div
       key={productId}
       className=" body-div bg-[#f2f2ff] flex flex-col items-center  
-    justify-start gap-6 mt-10 overflow-x-hidden   w-[100vw]      "
+    justify-start gap-6 mt-10 overflow-x-hidden  w-[100vw]      "
     >
-      <div className="main-div flex flex-row items-start justify-center   gap-5    w-[100%]   ">
-        <div className=" img-div flex flex-col   items-start justify-start w-[40%] overflow-hidden ">
+      <div className="main-div flex flex-row max_sm:flex-col max_sm:items-center items-start justify-center   gap-5    w-[100%]   ">
+        <div className=" img-div flex flex-col   items-start justify-start max_sm:w-[90%] w-[40%] overflow-hidden ">
           <div className="flex flex-row gap-5 items-center justify-center ml-5">
             {" "}
             <h1
@@ -90,7 +90,7 @@ export default function SingleProduct() {
             </h1>
           </div>
           <img
-            className="w-[100%] h-[500px] rounded-[1rem] overflow-hidden  max_sm:h-[250px]"
+            className="w-[100%] h-[500px] rounded-[1rem] overflow-hidden     "
             style={{ border: "2px solid black" }}
             src={imgs[imgIndex]}
           />
@@ -126,11 +126,9 @@ export default function SingleProduct() {
               </motion.p>
             </div>
           </div>
-
-          <Sugestions product={product} />
         </div>
-        <div className=" dec-div flex flex-col gap-5 w-[50%] mt-[3rem] max_sm:mt-0">
-          <div className="flex flex-row gap-5">
+        <div className=" dec-div flex flex-col items-center gap-5 w-[50%] mt-[3rem] max_sm:mt-0">
+          <div className="flex flex-row   gap-5 max_sm:w-[20rem]  ">
             <a
               className="cursor-pointer max_sm:text-[12px]"
               onClick={() => setDecNav({ dec: true })}
@@ -148,7 +146,7 @@ export default function SingleProduct() {
               className="cursor-pointer max_sm:text-[12px]"
               onClick={() => setDecNav({ dec: false, spec: true })}
             >
-              Product sepcs
+              Product Specs
               {decNav.spec && (
                 <motion.div
                   initial={{ width: "20%" }}
@@ -171,10 +169,10 @@ export default function SingleProduct() {
               )}
             </a>
           </div>
-          <div className="w-[100%] h-[1px] bg-gray-600   "></div>
+          <div className="w-[100%] h-[1px] bg-gray-600   max_sm:w-[150%]"></div>
           <Additem product={product} handleCard={handleCard} />
 
-          <div className=" switch-page-div flex flex-col text-start  items-center justify-center w-[100%] ">
+          <div className=" switch-page-div flex flex-col text-start  items-center justify-center w-[100%]     ">
             {decNav.dec ? (
               <ProductDec dec={dec} />
             ) : decNav.spec ? (
@@ -184,6 +182,9 @@ export default function SingleProduct() {
             ) : null}
           </div>
         </div>
+      </div>
+      <div className="w-[100%]     flex items-start mt-5 ml-[6rem]">
+        <Sugestions product={product} />
       </div>
     </div>
   );

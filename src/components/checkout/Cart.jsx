@@ -19,6 +19,8 @@ const reducer = (state, action) => {
       NewArr.splice(action.index, 1);
 
       return NewArr;
+    case "CLEAR":
+      return [];
     default:
       throw new Error(`unkown action ${action.type}`);
   }
@@ -48,6 +50,10 @@ export default function Cart() {
   const handleRemove = (index) => {
     dispatch({ type: "REMOVE", index });
   };
+
+  const handleClear = () => {
+    dispatch({ type: "CLEAR" });
+  };
   const checkedOut = (item) => {
     if (!checkButton) {
       setCheckOut([...item]);
@@ -61,7 +67,13 @@ export default function Cart() {
     return <EmptyCart />;
   }
   if (checkButton) {
-    return <CheckOutForm items={items} handleRemove={handleRemove} />;
+    return (
+      <CheckOutForm
+        items={items}
+        handleRemove={handleRemove}
+        handleClear={handleClear}
+      />
+    );
   }
 
   return (

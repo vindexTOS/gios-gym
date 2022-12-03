@@ -5,12 +5,12 @@ export default function Sugestions({ product }) {
   const { navFilter } = useContext(SearchContext);
 
   return (
-    <div className="  mt-10     ">
+    <div className="  m-0    ">
       <h1 className="text-[1.2rem] ml-2 ">simular products</h1>
 
       <div
         style={{ overflowX: "scroll" }}
-        className="  w-[40%] h-[220px] flex flex-row gap-3       overflow-x-scroll   mt-2 absolute"
+        className="  w-[40%] h-[220px] flex flex-row gap-3   max_sm:w-[70%]   overflow-x-scroll   mt-2 absolute"
       >
         {navFilter
           .sort(() => Math.random() - 0.5)

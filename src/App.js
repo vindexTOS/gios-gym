@@ -10,6 +10,8 @@ import Test from "./components/test/test";
 import { db } from "./firebase-config";
 import Shippinginfo from "./components/Shippinginfo";
 import { collection, getDocs } from "firebase/firestore";
+import Succsess from "./components/checkout/checkoutform/Succsess";
+
 function App() {
   const [lang, setLang] = useState(false);
   const [searchButton, setSearchButton] = useState(false);
@@ -98,6 +100,7 @@ function App() {
           <Route path="/:productId" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/succsess" element={<Succsess />} />
         </Routes>
       </SearchContext.Provider>
     </BrowserRouter>

@@ -25,17 +25,29 @@ export default function Navigation() {
         </button>
       </div>
       {dropDown && <DropDownMenu types={types} lang={lang} />}
-      <div className="flex flex-row  max_sm:hidden items-center justify-between gap-5   text-[1.3rem]    ">
+      <div className="flex flex-row  max_sm:hidden items-center justify-between       ">
         {types.map((item) => {
           const { eng, geo, type } = item;
           return (
-            <button
-              style={{ fontFamily: "Dosis" }}
+            <motion.button
+              whileHover={{
+                backgroundColor: "hsla(5, 100%, 53%, 0.79)",
+                color: "white",
+              }}
+              transition={{
+                easeOut: [0.17, 0.67, 0.83, 0.67],
+              }}
+              style={{
+                fontFamily: "Dosis",
+                fontSize: "1rem",
+                height: "100%",
+                width: "9rem",
+              }}
               onClick={() => categoryClick(type)}
               key={type}
             >
               {!lang ? eng : geo}
-            </button>
+            </motion.button>
           );
         })}
       </div>

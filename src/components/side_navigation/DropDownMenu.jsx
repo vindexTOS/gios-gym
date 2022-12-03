@@ -21,7 +21,7 @@ export default function DropDownMenu({ types }) {
         return (
           <motion.button
             whileTap={{ backgroundColor: "gray", color: "red" }}
-            className="text-start text-[2rem]"
+            className="text-start text-[1.7rem] m-3"
             style={{ fontFamily: "Dosis" }}
             onClick={() => categoryClick(type)}
             key={type}
