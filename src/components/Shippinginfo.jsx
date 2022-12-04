@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Shippinginfo() {
   return (
-    <div className="max_sm:w-[20rem]">
+    <div className="max_sm:w-[20rem] h-[100vh] ">
       <p>
         We normally ship your order within 1 business days with Swiss Post to
         Switzerland and Liechtenstein when ordered with “Swiss Post Priority”

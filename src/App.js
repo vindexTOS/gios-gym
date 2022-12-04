@@ -92,7 +92,7 @@ function App() {
           setCard,
         }}
       >
-        <Navbar />
+      <Navbar />
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -103,8 +103,9 @@ function App() {
           <Route path="/test" element={<Test />} />
           <Route path="/succsess" element={<Succsess />} />
         </Routes>
-        < Footer/>
       </SearchContext.Provider>
+      < Footer/> 
+
     </BrowserRouter>
   );
 }

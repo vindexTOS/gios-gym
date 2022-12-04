@@ -4,7 +4,7 @@ import {AiFillPhone } from "react-icons/ai"
  import contactFormArt from "../utils/contactFormArt"
 export default function contact() {
   return (
-    <form className="w-[100vw] h-[100vh]     flex flex-col items-center	 justify-center  ">
+    <form className="w-[100vw] h-[100vh]  max_sm:mb-[30rem]   flex flex-col items-center	 justify-center  ">
       <div className=" w-[90%] flex flex-col items-start justify-start gap-2">
         <div className="  flex flex-col gap-2 ">
           <input

@@ -7,7 +7,7 @@ export default function Product() {
   const { navFilter, search, loading } = useContext(SearchContext);
 
   return (
-    <div className="product-wrapper place-content-center gap-10 mt-[1rem] w-[100%]   ">
+    <div className="product-wrapper place-content-center justify-center h-[100%] gap-10 mt-[1rem] w-[100%]  pb-[20rem]  ">
       {navFilter
         .filter((val) => {
           if (val == "") {

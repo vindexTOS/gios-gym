@@ -73,7 +73,7 @@ export default function SingleProduct() {
     <div
       key={productId}
       className=" body-div  flex flex-col items-center  
-    justify-start gap-6 mt-10 overflow-x-hidden  w-[100vw]  h-[100%]    "
+    justify-start gap-6 mt-10 overflow-x-hidden  w-[100vw]  h-[100%] mb-[25rem]    "
     >
       <div className="main-div flex flex-row max_sm:flex-col max_sm:items-center items-start justify-center   gap-5    w-[100%]   ">
         <div className=" img-div flex flex-col   items-start justify-start max_sm:w-[90%] w-[40%] overflow-hidden ">
