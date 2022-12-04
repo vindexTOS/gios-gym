@@ -30,10 +30,10 @@ export default function CheckOutForm({ items, handleRemove, handleClear }) {
   };*/
 
   return (
-    <section className="flex flex-row justify-between gap-5 max_sm:flex-col">
+    <section className="flex flex-row justify-between gap-5 max_sm:flex-col max_sm:flow-x-hidden">
       <form
-        style={{ boxShadow: "1.9px 3.8px 3.8px hsl(0deg 0% 0% / 0.44)" }}
-        className="billing-forms flex flex-col items-center justify-center  m-5 gap-5 bg-gray-300   bg-opacity-60	 rounded-[10px] w-[50%]"
+        style={{ backgroundColor:"white",sboxShadow: "1.9px 3.8px 3.8px hsl(0deg 0% 0% / 0.44)" }}
+        className="billing-forms flex flex-col items-center justify-center  m-5 gap-5 bg-gray-300   bg-opacity-60	 rounded-[10px] w-[50%] max_sm:w-[90%]"
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1>Billing Info</h1>
@@ -46,8 +46,7 @@ export default function CheckOutForm({ items, handleRemove, handleClear }) {
             <div className="flex flex-row gap-5">
               {/*first and last name Div*/}
               <span className="flex flex-col">
-                <label htmlFor="name">First Name</label>
-                <input
+                 <input
                   id="name"
                   type="text"
                   placeholder="First Name"
@@ -55,8 +54,7 @@ export default function CheckOutForm({ items, handleRemove, handleClear }) {
                 />{" "}
               </span>
               <span className="flex flex-col">
-                <label htmlFor="last">Last Name</label>
-                <input
+                 <input
                   id="last"
                   type="text"
                   placeholder="Last Name"
@@ -66,8 +64,7 @@ export default function CheckOutForm({ items, handleRemove, handleClear }) {
               {/*first and last name Div*/}
             </div>
             <span className="flex flex-col">
-              <label>Company name</label>
-              <input
+               <input
                 className="w-[200%]"
                 type="text"
                 placeholder="Optional"
@@ -78,8 +75,7 @@ export default function CheckOutForm({ items, handleRemove, handleClear }) {
               {/*contact and personal info */}
 
               <span className="flex flex-col">
-                <label htmlFor="email">Email</label>
-                <input
+                 <input
                   id="email"
                   type="email"
                   placeholder="Email"
@@ -87,8 +83,7 @@ export default function CheckOutForm({ items, handleRemove, handleClear }) {
                 />
               </span>
               <span className="flex flex-col">
-                <label htmlFor="">Phone number</label>
-                <input
+                 <input
                   id="phone"
                   type="text"
                   placeholder="Phone"
@@ -101,7 +96,7 @@ export default function CheckOutForm({ items, handleRemove, handleClear }) {
               {/*Country Address info*/}
               <div className="flex flex-col">
                 <label>Country</label>
-                <select {...register("country")}>
+                <select className="max_sm:w-[7rem]" {...register("country")}>
                   {countryData.map((country) => {
                     const { name, code } = country;
                     return <option key={code}>{name}</option>;
@@ -110,8 +105,7 @@ export default function CheckOutForm({ items, handleRemove, handleClear }) {
               </div>
               <div className="mt-5 flex flex-col gap-5">
                 {/*address */}
-                <label>Address</label>
-                <input
+                 <input
                   type="text"
                   placeholder="Address-1"
                   {...register("address-1")}
@@ -124,24 +118,21 @@ export default function CheckOutForm({ items, handleRemove, handleClear }) {
               </div>
               <div className="flex flex-col mt-5">
                 {/*state/provinc/city/town*/}
-                <label>Town/City</label>
-                <input
+                 <input
                   type="text"
                   placeholder="Town/City"
                   {...register("town")}
                 />
-                <div className="flex flex-row gap-5">
+                <div className="flex flex-row gap-5 mt-5">
                   <span className="flex flex-col gap-5">
-                    <label>province/state</label>
-                    <input
+                     <input
                       type="text"
-                      placehodler="Province/State"
+                      placeholder="Province/State"
                       {...register("state")}
                     />
                   </span>
                   <span className="flex flex-col gap-5">
-                    <label>Postcod/ZIP</label>
-                    <input
+                     <input
                       type="text"
                       placeholder="Postcode/Zip"
                       {...register("ZIP")}
@@ -156,10 +147,10 @@ export default function CheckOutForm({ items, handleRemove, handleClear }) {
           whileHover={{
             backgroundColor: "hsla(0, 100%, 51%, 0.86)",
           }}
-          style={{ backgroundColor: "hsla(13, 100%, 51%, 0.86)" }}
+          style={{ backgroundColor: "hsla(37, 89%, 52%, 0.9)" }}
           className=" 
-          text-gray-300  
-           w-[40%] h-[2.3rem] rounded-[12px] m-4"
+          text-white 
+           w-[20%] h-[2.3rem] rounded-[12px] m-4"
           type="submit"
         >
           SUBMIT

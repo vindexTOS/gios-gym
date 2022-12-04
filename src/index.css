@@ -16,6 +16,7 @@
 
 body {
   background-color: #e9e9eb;
+  height:100%;
 }
 
 * p {
@@ -28,6 +29,14 @@ body {
 
 .billing-forms input {
   height: 2.3rem;
-  border-radius: 5px;
-  box-shadow: -1px 2px 2px hsla(14, 84%, 53%, 0.79);
+ 
+background:none;
+outline:none;
+border-bottom:2px solid hsla(37, 89%, 52%, 0.6);
+}
+
+@media all and (max-width: 639px){
+  .billing-forms input{
+    width:7rem;
+  }
 }

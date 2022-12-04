@@ -72,8 +72,8 @@ export default function SingleProduct() {
   return (
     <div
       key={productId}
-      className=" body-div bg-[#f2f2ff] flex flex-col items-center  
-    justify-start gap-6 mt-10 overflow-x-hidden  w-[100vw]      "
+      className=" body-div  flex flex-col items-center  
+    justify-start gap-6 mt-10 overflow-x-hidden  w-[100vw]  h-[100%]    "
     >
       <div className="main-div flex flex-row max_sm:flex-col max_sm:items-center items-start justify-center   gap-5    w-[100%]   ">
         <div className=" img-div flex flex-col   items-start justify-start max_sm:w-[90%] w-[40%] overflow-hidden ">
@@ -91,7 +91,7 @@ export default function SingleProduct() {
           </div>
           <img
             className="w-[100%] h-[500px] rounded-[1rem] overflow-hidden     "
-            style={{ border: "2px solid black" }}
+            style={{ border: "2px solid hsla(37, 89%, 52%, 0.9)" }}
             src={imgs[imgIndex]}
           />
           <div className="flex flex-row mt-2 w-[100%] items-center justify-center   ">
@@ -127,7 +127,7 @@ export default function SingleProduct() {
             </div>
           </div>
         </div>
-        <div className=" dec-div flex flex-col items-center gap-5 w-[50%] mt-[3rem] max_sm:mt-0">
+        <div className=" dec-div flex flex-col max_sm:items-center gap-5 w-[50%] mt-[3rem] max_sm:mt-0">
           <div className="flex flex-row   gap-5 max_sm:w-[20rem]  ">
             <a
               className="cursor-pointer max_sm:text-[12px]"
@@ -138,7 +138,9 @@ export default function SingleProduct() {
                 <motion.div
                   initial={{ width: "20%" }}
                   animate={{ width: "100%" }}
-                  className="  h-[2px] bg-red-600 "
+                  className="  h-[2px]  "
+                  style={{backgroundColor:"hsla(37, 89%, 52%, 0.6)"}}
+
                 ></motion.div>
               )}
             </a>
@@ -151,7 +153,8 @@ export default function SingleProduct() {
                 <motion.div
                   initial={{ width: "20%" }}
                   animate={{ width: "100%" }}
-                  className="  h-[2px] bg-red-600 "
+                  className="  h-[2px]   "                    style={{backgroundColor:"hsla(37, 89%, 52%, 0.6)"}}
+
                 ></motion.div>
               )}
             </a>
@@ -164,7 +167,11 @@ export default function SingleProduct() {
                 <motion.div
                   initial={{ width: "20%" }}
                   animate={{ width: "100%" }}
-                  className="  h-[2px] bg-red-600 "
+                  className="  h-[2px]  
+
+                   "
+                   style={{backgroundColor:"hsla(37, 89%, 52%, 0.6)"}}
+
                 ></motion.div>
               )}
             </a>

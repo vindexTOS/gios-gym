@@ -37,14 +37,15 @@ export default function Navbar() {
       <div className="max_xl:justify-start max_xl:w-[100vw]  ">
         <Link style={{ cursor: "pointer" }} to="/">
           <div
+          style={{backgroundColor:"hsla(37, 89%, 52%, 0.8)"}}
             className={
               searchBar
                 ? "hidden"
-                : "  max_xl:ml-[2rem]  ml-[40px] logo flex items-center justify-center  bg-[#FF0000] w-[120px] h-[33px] rounded-[30px] font-bold "
+                : "  max_xl:ml-[2rem]  ml-[40px] logo flex items-center justify-center  w-[120px] h-[33px] rounded-[30px] font-bold "
             }
           >
             <h1 className="bg-white w-[80px] h-[24px] text-center flex items-center justify-center rounded-[30px]   ">
-              <span>giosgym</span>
+              <span style={{color:"hsla(37, 89%, 52%, 1)"}}>giosgym</span>
             </h1>
             <span style={{ color: "white" }} className="mb-1 ml-[2px]">
               .ge
@@ -55,6 +56,7 @@ export default function Navbar() {
       {!searchBar && (
         <div
           onClick={() => setSearchBar(!searchBar)}
+        
           className="xl:hidden   lg:hidden flex items-center justify-center w-[25px] h-[25px] rounded-[50%]  hover:bg-gray-300  cursor-pointer text-[1.2rem]"
         >
           <CiSearch />
@@ -73,6 +75,7 @@ export default function Navbar() {
             background: "none",
             fontSize: "12px",
             fontWeight: "bold",
+            color:"black"
           }}
           value={inputSearch}
           onChange={(e) => setInputSearch(e.target.value)}
@@ -105,7 +108,7 @@ export default function Navbar() {
               .map((item) => {
                 return (
                   <Link key={item.id} to={`/${item.id}`}>
-                    <p>{item.title}</p>
+                    <p style={{color:"black"}}>{item.title}</p>
                   </Link>
                 );
               })}
@@ -115,6 +118,7 @@ export default function Navbar() {
         <span className="w-[0.6px] h-[70%] bg-gray-300 mr-[10px]"></span>
         <a
           title="ძიება"
+          style={{color:"hsla(37, 89%, 52%, 1)"}}
           className=" flex items-center justify-center w-[25px] h-[25px] rounded-[50%]  hover:bg-gray-300  cursor-pointer"
         >
           <CiSearch onClick={searchRefClick} />

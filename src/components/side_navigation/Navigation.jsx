@@ -31,7 +31,7 @@ export default function Navigation() {
           return (
             <motion.button
               whileHover={{
-                backgroundColor: "hsla(5, 100%, 53%, 0.79)",
+                backgroundColor: "hsla(37, 89%, 52%, 0.6)",
                 color: "white",
               }}
               transition={{
