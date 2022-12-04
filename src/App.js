@@ -11,6 +11,7 @@ import { db } from "./firebase-config";
 import Shippinginfo from "./components/Shippinginfo";
 import { collection, getDocs } from "firebase/firestore";
 import Succsess from "./components/checkout/checkoutform/Succsess";
+import Footer from "./components/Footer"
 
 function App() {
   const [lang, setLang] = useState(false);
@@ -102,6 +103,7 @@ function App() {
           <Route path="/test" element={<Test />} />
           <Route path="/succsess" element={<Succsess />} />
         </Routes>
+        < Footer/>
       </SearchContext.Provider>
     </BrowserRouter>
   );
