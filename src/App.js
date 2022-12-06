@@ -12,7 +12,8 @@ import Shippinginfo from "./components/Shippinginfo";
 import { collection, getDocs } from "firebase/firestore";
 import Succsess from "./components/checkout/checkoutform/Succsess";
 import Footer from "./components/Footer"
-
+import Dumbbells from "./components/product/categorys/Dumbbells.jsx";
+import Navigation from "./components/side_navigation/Navigation";
 function App() {
   const [lang, setLang] = useState(false);
   const [searchButton, setSearchButton] = useState(false);
@@ -54,6 +55,7 @@ function App() {
       eng: "Dumbbells",
       geo: "ჰანტელი",
       type: "dumbbells",
+      link:"/dumbbells"
     },
     { eng: "Machines", geo: "ტრენაჟორი", type: "machines" },
     { eng: "Racks", geo: "რაკი", type: "racks" },
@@ -65,7 +67,7 @@ function App() {
     newArry = newArry.filter((val) => {
       if (type === "all") {
         console.log(val.type);
-        return val;
+        return data;
       } else if (val.type === type) {
         console.log(type);
         return val;
@@ -93,6 +95,7 @@ function App() {
         }}
       >
       <Navbar />
+      <Navigation />
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -102,6 +105,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/test" element={<Test />} />
           <Route path="/succsess" element={<Succsess />} />
+          <Route path="/dumbbells" element={<Dumbbells/>}/>
         </Routes>
       </SearchContext.Provider>
       < Footer/> 

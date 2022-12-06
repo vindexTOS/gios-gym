@@ -18,11 +18,11 @@ export default function Navbar() {
   const [inputSearch, setInputSearch] = React.useState("");
   const searchRefClick = () => {
     inputRef.current.focus();
-    if (inputRef.current.value.length < 0) {
-      return null;
-    } else {
+   
       setSearch(inputRef.current.value);
-    }
+      console.log("AHAH")
+    
+   
   };
   return (
     <nav
@@ -72,15 +72,15 @@ export default function Navbar() {
         <input
           style={{
             outline: "none",
-            background: "none",
-            fontSize: "12px",
+            background:"none",
+             fontSize: "12px",
             fontWeight: "bold",
             color:"black"
           }}
           value={inputSearch}
           onChange={(e) => setInputSearch(e.target.value)}
           ref={inputRef}
-          className="w-[100%]    ml-5 "
+          className=" w-[100%] ml-5 "
           placeholder="
           giosgym"
         />
@@ -90,7 +90,7 @@ export default function Navbar() {
               boxShadow: "1.9px 3.8px 3.8px hsl(0deg 0% 0% / 0.44)",
               borderRadius: "10px",
             }}
-            className=" h-[10rem] w-[500%]           truncate	  overflow-y-auto bg-[#F9F6EE] mt-[13rem] z-30   "
+            className=" h-[10rem] w-[70%] absolute	overflow-y-auto bg-[#F9F6EE] mt-[13rem] z-30   "
           >
             {navFilter
               .filter((val) => {
@@ -116,6 +116,7 @@ export default function Navbar() {
         )}
 
         <span className="w-[0.6px] h-[70%] bg-gray-300 mr-[10px]"></span>
+        
         <a
           title="ძიება"
           style={{color:"hsla(37, 89%, 52%, 1)"}}

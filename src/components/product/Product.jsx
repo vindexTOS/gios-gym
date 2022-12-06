@@ -10,12 +10,13 @@ export default function Product() {
     <div className="product-wrapper place-content-center justify-center h-[100%] gap-10 mt-[1rem] w-[100%]  pb-[20rem]  ">
       {navFilter
         .filter((val) => {
+          const newVal = val
           if (val == "") {
             return val;
-          } else if (val.title.toLowerCase().includes(search.toLowerCase())) {
-            return val;
-          }
-        })
+          } else if (newVal.title.toLowerCase().includes(search.toLowerCase())) {
+            return newVal;
+          } 
+          })
         .map((item, index) => {
           const { title, img, price, id } = item;
           return (
