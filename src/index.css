@@ -8,6 +8,7 @@
   margin: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fragment+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
@@ -47,3 +48,18 @@ border-bottom:2px solid hsla(37, 89%, 52%, 0.6);
     width:7rem;
   }
 }
+
+.contact-info{
+  font-family: 'Nerko One', cursive;
+
+
+  }
+  .contact-info p{
+    display: flex;
+    align-items: center;
+    gap:7px;
+  }
+
+  .svg-icon{
+    transform: scaleX(-1);
+  }

@@ -185,7 +185,15 @@ export default function SingleProduct() {
             ) : decNav.spec ? (
               <ProductSpecs Specifications={Specifications} />
             ) : decNav.shipping ? (
-              <Shippinginfo />
+              <p className="z-10  
+              ">
+                We normally ship your order within 1 business days with Swiss Post to
+                Switzerland and Liechtenstein when ordered with “Swiss Post Priority”
+                (all other countries are listed below) or worldwide with “DHL Express”.
+                We will contact you if your product can’t be shipped within the
+                estimated time. Please see also the availability details with every
+                product. We always do our best to complete orders as soon as possible.
+              </p>
             ) : null}
           </div>
         </div>
