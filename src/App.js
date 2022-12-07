@@ -14,6 +14,12 @@ import Succsess from "./components/checkout/checkoutform/Succsess";
 import Footer from "./components/Footer"
 import Dumbbells from "./components/product/categorys/Dumbbells.jsx";
 import Navigation from "./components/side_navigation/Navigation";
+import Product from "./components/product/Product";
+import Weights from "./components/product/categorys/Weights";
+import Gymnastics from "./components/product/categorys/Gymnastics";
+import Barbells from "./components/product/categorys/Barbells";
+import Machines from "./components/product/categorys/Machines";
+import Racks from "./components/product/categorys/Racks"
 function App() {
   const [lang, setLang] = useState(false);
   const [searchButton, setSearchButton] = useState(false);
@@ -44,12 +50,13 @@ function App() {
   }, [data]);
 
   const types = [
-    { eng: "All Product", geo: "ყველა პროდუქტი", type: "all" },
-    { eng: "Weights", geo: "წონები", type: "weights" },
+    { eng: "All Product", geo: "ყველა პროდუქტი", type: "all", link:"/" },
+    { eng: "Weights", geo: "წონები", type: "weights",link:"/weights"},
     {
       eng: "Barbell",
       geo: "ღერძი",
       type: "barbells",
+      link:"/barbells"
     },
     {
       eng: "Dumbbells",
@@ -57,24 +64,12 @@ function App() {
       type: "dumbbells",
       link:"/dumbbells"
     },
-    { eng: "Machines", geo: "ტრენაჟორი", type: "machines" },
-    { eng: "Racks", geo: "რაკი", type: "racks" },
-    { eng: "Gymnastic", geo: "გიმასტიკეიბ", type: "gymnastic" },
+    { eng: "Machines", geo: "ტრენაჟორი", type: "machines" ,link:"/machines"},
+    { eng: "Racks", geo: "რაკი", type: "racks" ,link:"/racks"},
+    { eng: "Gymnastic", geo: "გიმასტიკეიბ", type: "gymnastic",link:"/gymnastics" },
   ];
 
-  const categoryClick = (type) => {
-    let newArry = data;
-    newArry = newArry.filter((val) => {
-      if (type === "all") {
-        console.log(val.type);
-        return data;
-      } else if (val.type === type) {
-        console.log(type);
-        return val;
-      }
-    });
-    setNavFilter(newArry);
-  };
+  
   //data /////////////////////////
   return (
     <BrowserRouter>
@@ -82,7 +77,7 @@ function App() {
         value={{
           loading,
           types,
-          categoryClick,
+        
           navFilter,
           lang,
           setLang,
@@ -99,13 +94,20 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path='/:products/:productId'   element={<SingleProduct />} />
+
           <Route path="/contact" element={<Contact />} />
           <Route path="/shipping" element={<Shippinginfo />} />
-          <Route path="/:productId" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/test" element={<Test />} />
           <Route path="/succsess" element={<Succsess />} />
+          <Route path="/weights" element={<Weights/>}/>
+          <Route path="/barbells" element={<Barbells/>} />
           <Route path="/dumbbells" element={<Dumbbells/>}/>
+          <Route path="/machines" element={<Machines/>} />
+          <Route path="/racks" element={<Racks/>}/>
+
+          <Route path="/gymnastics" element={<Gymnastics/>}/>
         </Routes>
       </SearchContext.Provider>
       < Footer/> 

@@ -55,10 +55,11 @@ export default function SingleProduct() {
   };
   // img slider logic ends here
 
-  const { productId } = useParams();
+  const { productId   } = useParams();
   const product = navFilter.find(
-    (producte) => String(producte.id) === productId
+    (producte) => String(producte.id) === productId 
   );
+
   // data destruction
   if (!product) {
     return (

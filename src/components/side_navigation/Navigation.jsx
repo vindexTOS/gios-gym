@@ -6,7 +6,7 @@ import { VscThreeBars } from "react-icons/vsc";
 import { Link } from "react-router-dom";
  
 export default function Navigation() {
-  const { lang, categoryClick, types } = useContext(SearchContext);
+  const { lang,  types } = useContext(SearchContext);
 
   const [dropDown, setDropDown] = React.useState(false);
 
@@ -43,7 +43,7 @@ export default function Navigation() {
                 height: "60px",
                 width: "9rem",
               }}
-              onClick={() => categoryClick(type)}
+           
               key={type}
             >
               {!lang ? eng : geo}

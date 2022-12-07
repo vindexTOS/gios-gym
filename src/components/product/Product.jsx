@@ -1,12 +1,15 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import { SearchContext } from "../../components/context";
 import Loading from "../home/Loading";
 
-export default function Product() {
-  const { navFilter, search, loading } = useContext(SearchContext);
 
-  return (
+export default function Product() {
+  const { navFilter, search, loading,types } = useContext(SearchContext);
+
+  
+ 
+   return (
     <div className="product-wrapper place-content-center justify-center h-[100%] gap-10 mt-[1rem] w-[100%]  pb-[20rem]  ">
       {navFilter
         .filter((val) => {
@@ -18,9 +21,10 @@ export default function Product() {
           } 
           })
         .map((item, index) => {
-          const { title, img, price, id } = item;
+          const { title, img, price, id, type} = item;
+        
           return (
-            <Link key={id} to={`/${id}`} title={item.Specifications}>
+            <Link key={id} to={`/${type}/${id}`} title={item.Specifications}>
               {loading ? (
                 <div
                   key={id}

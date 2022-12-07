@@ -20,7 +20,7 @@ export default function Navbar() {
     inputRef.current.focus();
    
       setSearch(inputRef.current.value);
-      console.log("AHAH")
+      setSearch()
     
    
   };

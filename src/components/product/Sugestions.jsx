@@ -19,7 +19,7 @@ export default function Sugestions({ product }) {
             {
               if (product.type == item.type)
                 return (
-                  <Link to={`/${item.id}`}>
+                  <Link to={`/${item.type}/${item.id}`}>
                     {" "}
                     <div className="rounded-[15px] bg-gray-100 w-[170px] h-[180px] flex flex-col items-center justify-center m-2 "
                             

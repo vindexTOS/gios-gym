@@ -1,13 +1,14 @@
+ 
 import React ,{ useContext } from "react";
  import {SearchContext} from "../../context"
  import {Link} from "react-router-dom"
 import Loading from "../../home/Loading"
- const Dumbbells = ()=>{
-
+function Weights( ) {
+ 
     const {navFilter,loading} = useContext(SearchContext)
     return <div  className="product-wrapper place-content-center justify-center h-[100%] gap-10 mt-[1rem] w-[100%]  pb-[20rem]  ">{navFilter.map((items)=>{
         const { title, img, price, id,type } = items
-        if(type === "dumbbells")
+        if(type === "weights")
         return   <Link key={id} to={`/${type}/${id}`} title={items.Specifications}>
         {loading ? (
           <div
@@ -50,4 +51,4 @@ import Loading from "../../home/Loading"
     })}</div>
 }
 
-export default Dumbbells
+export default Weights;
