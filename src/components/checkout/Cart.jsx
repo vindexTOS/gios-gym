@@ -94,7 +94,7 @@ export default function Cart() {
               key={index}
               className="flex flex-row items-center justify-between border-[2px] p-1 rounded-[10px]  gap-3 "
             >
-              <Link to={`/${id}`}>
+              <Link to={`/${item.type}/${id}`}>
                 {" "}
                 <img
                   className="w-[80px] h-[70px] rounded-[10px] border-[2px]"

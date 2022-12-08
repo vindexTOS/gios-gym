@@ -14,7 +14,7 @@ export default function Navigation() {
      <motion.nav
       initial={{ y: -300 }}
       animate={{ y: 0 }}
-      className="  max_sm:overflow-x-hidden side-navigation w-[100%] bg-[#F9F6EE] flex h-[60px]    "
+      className="  max_sm:overflow-x-hidden side-navigation w-[100vw] bg-[#F9F6EE] flex h-[60px]    "
       style={{
         boxShadow: "1.9px 3.8px 3.8px hsl(0deg 0% 0% / 0.44)",
       }}
@@ -25,7 +25,7 @@ export default function Navigation() {
         </button>
       </div>
       {dropDown && <DropDownMenu types={types} lang={lang} />}
-      <div className="flex flex-row h-[100%] max_sm:hidden items-center justify-between       ">
+      <div className="flex flex-row h-[100%]  max_sm:hidden items-center justify-between       ">
         {types.map((item) => {
           const { eng, geo, type ,link} = item;
           return (
@@ -41,8 +41,9 @@ export default function Navigation() {
                 fontFamily: "Dosis",
                 fontSize: "1rem",
                 height: "60px",
-                width: "9rem",
+               
               }}
+              className="w-[9rem] max_lg:w-[6rem]"
            
               key={type}
             >

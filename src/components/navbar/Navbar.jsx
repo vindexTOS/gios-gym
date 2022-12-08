@@ -20,7 +20,7 @@ export default function Navbar() {
     inputRef.current.focus();
    
       setSearch(inputRef.current.value);
-      setSearch()
+      
     
    
   };
@@ -115,15 +115,15 @@ export default function Navbar() {
           </div>
         )}
 
-        <span className="w-[0.6px] h-[70%] bg-gray-300 mr-[10px]"></span>
+        <span className="w-[0.6px] h-[70%] bg-gray-300  "></span>
         
-        <a
+       <div className="  ml-10 w-[2rem]"> <a
           title="ძიება"
           style={{color:"hsla(37, 89%, 52%, 1)"}}
           className=" flex items-center justify-center w-[25px] h-[25px] rounded-[50%]  hover:bg-gray-300  cursor-pointer"
         >
-          <CiSearch onClick={searchRefClick} />
-        </a>
+          <CiSearch onClick={searchRefClick}  />
+        </a></div>
       </div>
       <div
         className={
