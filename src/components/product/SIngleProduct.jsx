@@ -199,7 +199,7 @@ export default function SingleProduct() {
           </div>
         </div>
       </div>
-      <div className="w-[100%]     flex items-start mt-5 ml-[6rem]">
+      <div className="w-[100%] max_sm:ml-[10rem]  flex items-start mt-5 ml-[6rem]">
         <Sugestions product={product} />
       </div>
     </div>

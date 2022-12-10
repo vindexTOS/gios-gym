@@ -1,23 +1,35 @@
-import React from "react";
+ import React,{useRef} from "react";
 import {SiGmail,SiInstagram,SiFacebook,SiTwitter} from "react-icons/si"
 import {AiFillPhone,AiOutlineSend } from "react-icons/ai"
  import contactImg from "../utils/contactImg.svg"
 import {motion as m} from "framer-motion"
+ 
  export default function contact() {
+
+ 
+
+   
+
+  
   return (
-    <form className="w-[100vw] h-[100vh]    flex flex-row items-center gap-20	 justify-center  ">
+    <form 
+     
+    className="w-[100vw] h-[100%]  mt-10  pb-10 flex flex-row items-center gap-20	 justify-center  ">
 
       <div className=" w-[100%] flex flex-col items-start justify-start gap-2 ml-5 z-10 max_sm:items-center">
         <div className="flex flex-col gap-2 max_sm:items-start max_sm:justify-start  max_sm:w-[90%]">
           <input
             placeholder="Name"
+            name="user_name"
             type="text"
             style={{
               background:" linear-gradient(302deg, rgba(102,245,250,0.12958686892725846) 34%, rgba(204,255,253,0.23883056640625) 65%, rgba(208,248,255,0.1632003143054097) 100%)" , borderBottom:"2px solid hsla(37, 89%, 52%, 0.6)",outline:"none"
             }}
           />
           <input
+
             placeholder="Email"
+            name="user_email"
             type="email"
             style={{
               background:" linear-gradient(302deg, rgba(102,245,250,0.12958686892725846) 34%, rgba(204,255,253,0.23883056640625) 65%, rgba(208,248,255,0.1632003143054097) 100%)" , borderBottom:"2px solid hsla(37, 89%, 52%, 0.6)",outline:"none"
@@ -26,6 +38,7 @@ import {motion as m} from "framer-motion"
         </div>
         <textarea
         placeholder="Contact us here or links below..."
+        name="message"
           className="w-[50%] h-[300px] max_sm:w-[90%] max_sm:h-[350px]"
           style={{
             boxShadow: "1.9px 1px 3.8px hsla(37, 89%, 52%, 0.6)",
@@ -34,6 +47,7 @@ import {motion as m} from "framer-motion"
           }}
         ></textarea>
                 <div className="flex items-end justify-end w-[50%]"><m.button 
+                type="submit"
                 style={{backgroundColor:"rgb(250,208,102)",color:"white"}}
                 whileHover={{
                   backgroundColor:"rgb(250,161,102)"

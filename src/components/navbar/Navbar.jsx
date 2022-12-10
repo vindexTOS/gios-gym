@@ -65,8 +65,8 @@ export default function Navbar() {
       <div
         className={
           !searchBar
-            ? "border-[1px] max_lg:hidden flex items-center  justify-center w-[100%] h-[33px] rounded-[30px]  ml-[30px] "
-            : `border-[1px] xl:hidden     absolute bg-white lg:hidden flex items-center justify-center w-[50%]  mr-[10rem]    h-[33px] rounded-[30px]`
+            ? "border-[1px] max_lg:hidden flex items-center bg-white justify-center w-[100%] h-[33px] rounded-[30px]  ml-[30px] "
+            : `border-[1px]     absolute bg-white   flex items-center justify-center w-[50%]  mr-[10rem]    h-[33px] rounded-[30px]`
         }
       >
         <input
@@ -128,7 +128,7 @@ export default function Navbar() {
       <div
         className={
           searchBar
-            ? "max_sm:ml-[18rem] icon-wrapper flex  p-0  text-[1rem] mr-20"
+            ? "max_sm:ml-[18rem] icon-wrapper flex  p-0  text-[1rem] mr-20 lg:ml-[50rem]"
             : "icon-wrapper flex gap-3 p-0  text-[1.2rem] mr-20  "
         }
         style={{ color: "gray" }}
