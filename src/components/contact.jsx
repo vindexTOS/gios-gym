@@ -1,20 +1,46 @@
- import React,{useRef} from "react";
+ import React,{useRef,useState} from "react";
 import {SiGmail,SiInstagram,SiFacebook,SiTwitter} from "react-icons/si"
 import {AiFillPhone,AiOutlineSend } from "react-icons/ai"
  import contactImg from "../utils/contactImg.svg"
 import {motion as m} from "framer-motion"
+
+
+
+const SucssesContact = ()=>{
+return <div className="absolute flex items-start  ">
+    <m.div className="h-[2.5rem] w-[9rem] bg-green-400 flex items-center justify-center rounded-[5px]"
+    initial={{y:-600}}
+    animate={{y:1}}
+    exit={{ duration: 2000,
+      fill: "forwards" }}
+
+    ><h1 className="text-[11px] text-white">your message sent successfully</h1></m.div>
+  </div>
+}
+
  
- export default function contact() {
+ export default function Contact( ) {
 
  
 
-   
+  const [succsess,setSuccsess] = useState(false)
+  const onSubmitClick = (e)=>{
+    e.preventDefault()
+     setSuccsess(!succsess)
+    const time = setTimeout(()=> {
+      setSuccsess(false)
+    },1000)
+  time()
+  }
+
 
   
   return (
-    <form 
+    <form onSubmit={onSubmitClick }
      
     className="w-[100vw] h-[100%]  mt-10  pb-10 flex flex-row items-center gap-20	 justify-center  ">
+              {succsess && < SucssesContact />}
+
 
       <div className=" w-[100%] flex flex-col items-start justify-start gap-2 ml-5 z-10 max_sm:items-center">
         <div className="flex flex-col gap-2 max_sm:items-start max_sm:justify-start  max_sm:w-[90%]">
@@ -70,3 +96,5 @@ import {motion as m} from "framer-motion"
     </form>
   );
 }
+
+
